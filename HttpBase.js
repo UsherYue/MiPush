@@ -4,6 +4,7 @@
  * User: usher.yue
  * Date: 17/12/7
  * Time: 18:41
+ * 心怀教育梦－烟台网格软件技术有限公司
  */
 const Constants = require('./Constants');
 const Result = require('./Result');
@@ -12,10 +13,18 @@ const {URL} = require('url');
 const QueryString = require('querystring');
 
 class HttpBase {
-    constructor() {
+    constructor(debug=false) {
         this.appSecret = Constants.secret;
+        this.debug=debug;
     }
 
+    /**
+     * 是否开启debug
+     * @param bDebug
+     */
+    setDebug(bDebug){
+        this.debug=bDebug;
+    }
     /**
      * 发送post请求
      * @param url
@@ -66,6 +75,9 @@ class HttpBase {
                         body += chunk.toString();
                     })
                     res.on('end', (res) => {
+                        if($this.debug){
+                            console.log(body)
+                        }
                         resolve(body);
                     });
                 } else {

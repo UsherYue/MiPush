@@ -4,6 +4,7 @@
  * User: usher.yue
  * Date: 17/12/6
  * Time: 22:36
+ * 心怀教育梦－烟台网格软件技术有限公司
  */
 const Message = require('./Message');
 const Constants = require('./Constants');
@@ -12,8 +13,6 @@ class Builder extends Message {
     constructor() {
         super();
         this.soundUri = 'sound_uri';
-        this.notifyForeground = 'notify_foreground';
-        this.notifyEffect = 'notify_effect';
         this.intentUri = 'intent_uri';
         this.webUri = 'web_uri';
         this.flowControl = 'flow_control';
@@ -24,27 +23,27 @@ class Builder extends Message {
         this.restricted_package_name = Constants.packageName;
     }
 
-    payload(payload) {
+    Payload(payload) {
         this.payload = payload;
     }
 
-    title(title) {
+    Title(title) {
         this.title = title;
     }
 
-    description(description) {
+    Description(description) {
         this.description = description;
     }
 
-    passThrough(passThrough) {
+    PassThrough(passThrough) {
         this.pass_through = passThrough;
     }
 
-    notifyType(type) {
+    NotifyType(type) {
         this.notify_type = type;
     }
 
-    restrictedPackageNames(packageNameList) {
+    RestrictedPackageNames(packageNameList) {
         let jointPackageNames = '';
         for (let packageName of packageNameList) {
             if (packageName) {
@@ -54,31 +53,31 @@ class Builder extends Message {
         this.restricted_package_name = jointPackageNames;
     }
 
-    timeToLive(ttl) {
+    TimeToLive(ttl) {
         this.time_to_live = ttl;
     }
 
-    timeToSend(timeToSend) {
+    TimeToSend(timeToSend) {
         this.time_to_send = timeToSend;
     }
 
-    notifyId(notifyId) {
+    NotifyId(notifyId) {
         this.notify_id = notifyId;
     }
 
-    extra(key, value) {
+    Extra(key, value) {
         this.extra[key] = value;
     }
 
-    build() {
+    Build() {
         let keys = [
             'payload', 'title', 'description', 'pass_through', 'notify_type',
             'restricted_package_name', 'time_to_live', 'time_to_send', 'notify_id'
         ];
         for (let key of keys) {
-            if (this.key) {
-                this.fields[key] = this.key;
-                this.json_infos[key] = this.key;
+            if (this[key]) {
+                this.fields[key] = this[key];
+                this.json_infos[key] = [this.key];
             }
         }
         //单独处理extra
@@ -93,3 +92,6 @@ class Builder extends Message {
 
     }
 }
+Builder.notifyForeground = 'notify_foreground';
+Builder.notifyEffect = 'notify_effect';
+module.exports=Builder;

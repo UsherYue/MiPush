@@ -6,6 +6,6 @@
  * Time: 22:44
  * 小米推送测试
  */
-const XiaoMi=require('xiaomipush');
-console.log(XiaoMi);
-module.exports=test;
+const XiaoMi=require('../MiHelper');
+XiaoMi.pushToAndroid('package','secret','1033145705652157622','title','payload');
+XiaoMi.pushToIos('bundleid','secret','1033145705652157622','title','payload');

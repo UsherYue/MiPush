@@ -41,7 +41,7 @@ class IOSBuilder extends Message {
         this.extra[key] = value;
     }
 
-    build() {
+    Build() {
         let keys = [
             'description', 'time_to_live', 'time_to_send'
         ];
@@ -53,11 +53,11 @@ class IOSBuilder extends Message {
         }
         //单独处理extra
         let JsonExtra = {};
-            for (var extraKey in this.extra) {
-                let extraValue=this.extra[extraKey];
-                this.fields[Message.EXTRA_PREFIX + extraKey] = extraValue;
-                JsonExtra[extraKey] = extraValue;
-            }
+        for (var extraKey in this.extra) {
+            let extraValue=this.extra[extraKey];
+            this.fields[Message.EXTRA_PREFIX + extraKey] = extraValue;
+            JsonExtra[extraKey] = extraValue;
+        }
         this.json_infos['extra'] = JsonExtra;
     }
 }
