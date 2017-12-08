@@ -19,15 +19,16 @@ class XiaoMiPush {
      * @param userAccount
      * @param title
      * @param payload
+     * @param debug
      * @returns {Promise.<*>}
      */
-    static async pushToAndroid($package, secret, userAccount, title, payload) {
+    static async pushToAndroid($package, secret, userAccount, title, payload,debug=false) {
         Constants.setPackage($package);
         Constants.setSecret(secret);
         let sender = new Sender();
         let message = new Builder();
         //开启httpdebug
-        sender.setDebug(true);
+        sender.setDebug(debug);
         // 通知栏的title
         message.Title(title);
         //打开app
@@ -53,15 +54,16 @@ class XiaoMiPush {
      * @param userAccount
      * @param title
      * @param payload
+     * @param debug
      * @returns {Promise.<*>}
      */
-    static async pushToIos(bundleId, secret, userAccount, title, payload) {
+    static async pushToIos(bundleId, secret, userAccount, title, payload,debug=false) {
         Constants.setBundleId(bundleId);
         Constants.setSecret(secret);
         let sender = new Sender();
         let message = new IOSBuilder();
         //开启httpdebug
-        sender.setDebug(true);
+        sender.setDebug(debug);
         message.Description(title);
         message.Extra('payload', payload);
         message.SoundUrl('default');
