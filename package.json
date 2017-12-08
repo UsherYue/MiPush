@@ -1,20 +1,27 @@
 {
-  "name": "MiPush",
+  "name": "xiaomipush",
   "version": "1.0.0",
-  "description": "XiaoMi App Push For Node.js SDK",
+  "description": "XiaoMi App Push SDK for node.js",
+  "main": "main.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "test": "node ./test/MiPushTest.js"
+    "test": "test/MiPushTest.js"
   },
-  "dependencies": {
-  },
-  "keywords": [
-    "xiaomi",
-    "mipush",
-    "xiaomipush"
-  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/UsherYue/MiPush.git"
+    "url": "git+https://github.com/UsherYue/MiPush.git"
   },
-  "author": "<dongweiyue@12xue.com.cn> (usher.yue <dongweiyue@12xue.com.cn>)"
+  "keywords": [
+    "mipush",
+    "xiaomi",
+    "xiaomipush"
+  ],
+  "author": "usher.yue",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UsherYue/MiPush/issues"
+  },
+  "homepage": "https://github.com/UsherYue/MiPush#readme"
 }
