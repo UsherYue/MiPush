@@ -1,0 +1,20 @@
+{
+  "name": "MiPush",
+  "version": "1.0.0",
+  "description": "XiaoMi App Push For Node.js SDK",
+  "scripts": {
+    "test": "node ./test/MiPushTest.js"
+  },
+  "dependencies": {
+  },
+  "keywords": [
+    "xiaomi",
+    "mipush",
+    "xiaomipush"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UsherYue/MiPush.git"
+  },
+  "author": "<dongweiyue@12xue.com.cn> (usher.yue <dongweiyue@12xue.com.cn>)"
+}
