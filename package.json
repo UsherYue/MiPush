@@ -1,6 +1,6 @@
 {
   "name": "xiaomipush",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "XiaoMi App Push SDK for node.js",
   "main": "MiHelper.js",
   "directories": {
